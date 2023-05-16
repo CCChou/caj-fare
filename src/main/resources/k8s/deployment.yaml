@@ -1,0 +1,25 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: caj-fare
+  labels:
+    app: caj-fare
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: caj-fare
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: caj-fare
+        version: v1
+    spec:
+      containers:
+        - name: caj-fare
+          image: 'docker.io/d0ck3rj3ff/caj-fare:latest'
+          ports:
+            - containerPort: 8080
+              protocol: TCP
