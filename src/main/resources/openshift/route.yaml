@@ -4,7 +4,6 @@ metadata:
   name: caj-fare
   namespace: caj-fare
 spec:
-  host: caj-fare-${STUDENT_ID}.apps.penguin.rhtw.kubedev.org
   to:
     kind: Service
     name: caj-fare
