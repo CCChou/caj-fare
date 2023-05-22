@@ -33,4 +33,5 @@ public class GenericResponseDTO {
 	 */
 	private String traceId;
 
+	private String version;
 }

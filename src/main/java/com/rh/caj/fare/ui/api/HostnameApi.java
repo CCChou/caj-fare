@@ -21,7 +21,7 @@ public class HostnameApi {
 	public ResponseEntity<GenericResponseDTO> getFare()
 			throws JsonMappingException, JsonProcessingException {
 		log.info("GET /api/hostname");
-		return new ResponseEntity<>(GenericResponseDTO.builder().data(Optional.ofNullable(System.getenv("HOSTNAME")) + " v2")
-				.code(String.valueOf(HttpStatus.OK.value())).message(HttpStatus.OK.name()).build(), HttpStatus.OK);
+		return new ResponseEntity<>(GenericResponseDTO.builder().data(Optional.ofNullable(System.getenv("HOSTNAME")))
+				.code(String.valueOf(HttpStatus.OK.value())).message(HttpStatus.OK.name()).version("v2").build(), HttpStatus.OK);
 	}
 }
