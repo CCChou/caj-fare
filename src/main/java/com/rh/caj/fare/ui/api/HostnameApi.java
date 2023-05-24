@@ -22,6 +22,6 @@ public class HostnameApi {
 			throws JsonMappingException, JsonProcessingException {
 		log.info("GET /api/hostname");
 		return new ResponseEntity<>(GenericResponseDTO.builder().data(Optional.ofNullable(System.getenv("HOSTNAME")))
-				.code(String.valueOf(HttpStatus.OK.value())).message(HttpStatus.OK.name()).version("v5").build(), HttpStatus.OK);
+				.code(String.valueOf(HttpStatus.OK.value())).message(HttpStatus.OK.name()).version("v6").build(), HttpStatus.OK);
 	}
 }
