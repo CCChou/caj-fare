@@ -44,9 +44,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation('org.springframework.cloud:spring-cloud-starter-sleuth') {exclude group: 'org.springframework.cloud', module: 'spring-cloud-sleuth-brave'}
-	implementation 'org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure'
-	implementation 'io.opentelemetry:opentelemetry-exporter-otlp-trace'
+	// implementation('org.springframework.cloud:spring-cloud-starter-sleuth') {exclude group: 'org.springframework.cloud', module: 'spring-cloud-sleuth-brave'}
+	// implementation 'org.springframework.cloud:spring-cloud-sleuth-otel-autoconfigure'
+	// implementation 'io.opentelemetry:opentelemetry-exporter-otlp-trace'
 	implementation 'io.grpc:grpc-okhttp:1.50.0'
 	implementation 'io.micrometer:micrometer-registry-prometheus'
 	implementation group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.2.32'
@@ -59,7 +59,7 @@ dependencies {
 dependencyManagement {
 	imports {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:2020.0.4"
-		mavenBom 'org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:1.0.0-M12'
+		// mavenBom 'org.springframework.cloud:spring-cloud-sleuth-otel-dependencies:1.0.0-M12'
 	}
 }
 
