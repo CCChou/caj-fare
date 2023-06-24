@@ -5,22 +5,10 @@ spring:
     allow-circular-references: true
   mvc:
     pathmatch:
-      matching-strategy: ANT_PATH_MATCHER
-  # sleuth:
-  #   otel:
-  #     config:
-  #       trace-id-ratio-based: 1.0
-  #     exporter:
-  #       otlp:
-  #         endpoint: ${JAEGER_URI:http://jaeger-collector.istio-system.svc.cluster.local:4317}
-management:
-  endpoints:
-    web:
-      exposure:
-        include:
-        - health
-        - info
-        - prometheus  
+      matching-strategy: ANT_PATH_MATCHER 
+logging:
+  file:
+    name: app.log
 fare:
   stationAPI: ${STATION_API:http://localhost:8081/api/master-files/stations}
   rate: 2
