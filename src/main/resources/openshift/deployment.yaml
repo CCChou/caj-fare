@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: caj-fare
-          image: 'docker.io/dennischou/caj-fare:v1.10'
+          image: 'docker.io/dennischou/caj-fare:v2.0'
           ports:
             - containerPort: 8080
               protocol: TCP

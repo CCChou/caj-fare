@@ -9,6 +9,13 @@ spring:
 logging:
   file:
     name: app.log
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - health
+        - prometheus 
 fare:
   stationAPI: ${STATION_API:http://localhost:8081/api/master-files/stations}
   rate: 2
