@@ -10,12 +10,16 @@ logging:
   file:
     name: app.log
 management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
   endpoints:
     web:
       exposure:
         include:
         - health
-        - prometheus 
+        - prometheus
 fare:
   stationAPI: ${STATION_API:http://localhost:8081/api/master-files/stations}
   rate: 2
