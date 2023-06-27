@@ -23,3 +23,6 @@ spec:
           ports:
             - containerPort: 8080
               protocol: TCP
+          env:
+            - name: STATION_API
+              value: http://caj-master-file:8080/api/master-files/stations
