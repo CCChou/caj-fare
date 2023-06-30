@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: caj-fare
-          image: 'quay.io/wksp/caj-fare-userx:v1.0'
+          image: 'quay.io/wksp/caj-fare-userx:v1'
           ports:
             - containerPort: 8080
               protocol: TCP
