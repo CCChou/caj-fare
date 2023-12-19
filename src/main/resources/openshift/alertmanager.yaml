@@ -1,0 +1,31 @@
+apiVersion: monitoring.coreos.com/v1beta1
+kind: AlertmanagerConfig
+metadata:
+  name: alert-notifications
+  labels:
+    alertmanagerConfig: main
+spec:
+  route:
+    receiver: mail
+    groupBy: [job]
+    groupInterval: 5m
+    groupWait: 30s
+    repeatInterval: 2h
+  receivers:
+  - name: mail
+    emailConfigs:
+    - to: dechou@redhat.com				              
+      from: dses5900@gmail.com
+      smarthost: smtp.gmail.com:587		
+      hello: smtp.gmail.com
+      authUsername: dses5900@gmail.com 
+      authPassword:
+        name: mail-password
+        key: password
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mail-password
+stringData:
+  password: ijxpedcagtubqktt

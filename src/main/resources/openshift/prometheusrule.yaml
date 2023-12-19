@@ -6,14 +6,13 @@ spec:
   groups:
     - name: caj-fare
       rules:
-        - alert: CpuUsageAlert
+        - alert: API Request
           annotations:
             summary: >-
-              {{ $labels.app }} in {{ $labels.namespace }} cpu is greater than
-              1%
+              {{ $labels.app }} in {{ $labels.namespace }} API Request is greater than
+              1
           expr: >-
-            process_cpu_usage{app="caj-fare",namespace="caj-fare"} >
-            0.01
+            http_server_requests_seconds_count{namespace='user1', app='caj-fare', uri='/api/hostname'} > 1
           for: 5s
           labels:
             severity: Critical
