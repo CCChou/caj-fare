@@ -35,3 +35,6 @@ spec:
               port: 8080
             initialDelaySeconds: 3
             periodSeconds: 3
+          env:
+            - name: STATION_API
+              value: 'http://caj-master-file:8080/api/master-files/stations'
