@@ -1,7 +1,6 @@
 package com.rh.caj.fare.ui.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.sleuth.Tracer;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -27,9 +26,6 @@ public class FareApi {
 	@Autowired
 	FareApplicationService fareApplicationService;
 	
-	@Autowired
-	Tracer tracer;
-
 	@GetMapping(value = "/api/fare/{type}", produces = "application/json")
 	public ResponseEntity<GenericResponseDTO> getFare(@PathVariable("type") String type)
 			throws JsonMappingException, JsonProcessingException {
@@ -38,7 +34,6 @@ public class FareApi {
 				.data(fareApplicationService.getFareTable(type))
 				.code(String.valueOf(HttpStatus.OK.value()))
 				.message(HttpStatus.OK.name())
-				.traceId(tracer.currentSpan().context().traceId())
 				.build(), HttpStatus.OK);
 	}
 	
@@ -50,7 +45,6 @@ public class FareApi {
 				.data(exception.getMessage())
 				.code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
 				.message(HttpStatus.INTERNAL_SERVER_ERROR.name())
-				.traceId(tracer.currentSpan().context().traceId())
 				.build(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
@@ -62,7 +56,6 @@ public class FareApi {
 				.data(exception.getMessage())
 				.code(String.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()))
 				.message(HttpStatus.INTERNAL_SERVER_ERROR.name())
-				.traceId(tracer.currentSpan().context().traceId())
 				.build(), HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 	
